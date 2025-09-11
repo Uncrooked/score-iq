@@ -2,7 +2,6 @@
 
 import "@/src/styles/globals.css";
 import "@/src/styles/pages/results.css";
-import { Card, CardContent } from "@/components/ui/card"
 import { getCategory, getLifeExpectancyData, getLifeEventsData, getSkillsData } from "./functions"
 import { LifeExpectancyChart } from "../../../components/results/LifeExpectancyChart/LifeExpectancyChart"
 import { LifeEventsChart } from "../../../components/results/LifeEventsChart/LifeEventsChart"
