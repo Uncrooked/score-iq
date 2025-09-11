@@ -1,10 +1,10 @@
 #quiz-page{
     height:100%;
     width:100%;
-    overflow: hidden;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    gap:30px;
 }
 
 #quiz-page .home-btn{
@@ -23,4 +23,10 @@
     display:grid;
     place-items: center;
     align-self: flex-end;
+}
+
+@media(max-width:768px){
+    #quiz-page{
+        gap:10px;
+    }
 }
