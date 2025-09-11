@@ -1,8 +1,8 @@
 
 #quiz-page #quiz-wrapper{
     width:750px;
-    max-width:100%;
-    margin:auto;
+    max-width:calc(100vw - (var(--phone-margin) * 2));
+    margin-inline:auto;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -54,11 +54,12 @@
 /*type image*/
 #quiz-page #quiz-wrapper.type-image .image{
     width:500px;
-    height:250px;
+    max-width:100%;
     background-color:var(--neutral-800);
     border-radius:5px;
     margin-top:30px;
     margin-inline:auto;
+    aspect-ratio:500/250;
 }
 
 /*type upload*/
@@ -79,11 +80,26 @@
 }
  
 @media(max-width:768px){
+
+    #quiz-page #quiz-wrapper #question-wrapper .head{
+        margin-bottom:15px;
+    }
+
+    #quiz-page #quiz-wrapper.type-image .image{
+        margin-top:15px;
+    }
+
     #quiz-page #quiz-wrapper #answer-wrapper{
         flex-direction: column;
     }
 
     #quiz-page #quiz-wrapper #answer-wrapper .answer{
-        height:100px;
+        height:80px;
+        border-radius:5px;
+    }
+
+    #quiz-page #quiz-wrapper #question-wrapper p{
+        font-size:16px;
+        line-height:18px;
     }
 }
