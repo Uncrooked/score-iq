@@ -122,7 +122,7 @@ export function LifeEventsChart({ data }: LifeEventsChartProps) {
             Probabilités catastrophiques en hausse
           </div>
           <div className="text-muted-foreground text-lg">
-            Analyse des événements probables durant votre vie
+            Une Meilleur hygiène de vie serait à envisager
           </div>
         </div>
       </CardFooter>
