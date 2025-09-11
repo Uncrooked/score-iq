@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+*{
+  font-family: Clash Grotesk;
+  box-sizing: border-box;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -76,6 +81,21 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+
+  --neutral-950:#0a0a0a;
+  --neutral-900:#171717;
+  --neutral-800:#262626;
+  --neutral-700:#404040;
+  --neutral-600:#525252;
+  --neutral-500:#737373;
+  --neutral-400:#a3a3a3;
+  --neutral-300:#d4d4d4;
+  --neutral-200:#e5e5e5;
+  --neutral-100:#f5f5f5;
+  --neutral-50:#fafafa;
+
+  --pink:#FF4DBE;
 }
 
 .dark {
@@ -123,5 +143,52 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/*———————GENERAL————————*/
+
+body{
+  height:100dvh;
+  padding-top:0;
+}
+
+.desktop-width{
+  --phone-margin:20px;
+  --desktop-width:calc(1300px + var(--phone-margin));
+  width:var(--desktop-width);
+  max-width:calc(100vw);
+  padding-inline:var(--phone-margin);
+  margin-inline:auto;
+}
+
+
+#main{
+  padding-top:150px;
+  height:100%;
+  display:grid;
+  place-items: center;
+}
+
+#main.quiz{
+  padding-top:100px;
+  padding-bottom:100px;
+}
+
+/*—————anim—————*/
+
+.anim{
+  transition:opacity 0.4s;
+  cursor:pointer;
+}
+
+.anim:hover{
+  opacity: 0.8;
+}
+
+@media(max-width:1024px){
+  #main.quiz{
+    padding-top:20px;
+    padding-bottom:20px;
   }
 }

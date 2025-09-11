@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-import Header from "@/src/ui/Header/Header";
+import "@/src/styles/index.css";
 
 export default function Layout({children}:{children:React.ReactNode}){
     return(
@@ -9,9 +8,10 @@ export default function Layout({children}:{children:React.ReactNode}){
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>Document</title>
             </head>
-            <body className='dark'>
-                <Header/>
-                {children}
+            <body className='dark quiz'>
+                <div id="main" className="desktop-width quiz">
+                    {children}
+                </div>
             </body>
         </html>
     );

@@ -14,11 +14,10 @@ model question {
   content_img_id         Int?
   content_upload_type_id Int?
   
-  content_img          img?        @relation(fields: [content_img_id], references: [id])
-  content_upload_type  upload_type? @relation(fields: [content_upload_type_id], references: [id])
-  answers               answer[]
-  
-  @@map("question")
+  img                 img?        @relation(fields: [content_img_id], references: [id])
+  upload_type         upload_type? @relation(fields: [content_upload_type_id], references: [id])
+  answers             answer[]
+  question_type       question_type? @relation(fields: [type_id], references: [id])
 }
 
 model img {
@@ -29,17 +28,13 @@ model img {
   alt    String?
   
   questions question[]
-  
-  @@map("img")
 }
 
 model upload_type {
   id        Int    @id @default(autoincrement())
   mime_type String
-  
+
   questions question[]
-  
-  @@map("upload_type")
 }
 
 model answer {
@@ -48,6 +43,11 @@ model answer {
   content    String
   
   question   question @relation(fields: [question_id], references: [id])
-  
-  @@map("answer")
+}
+
+model question_type {
+  id    Int     @id   @default(autoincrement())
+  type  String
+
+  questions question[]
 }
