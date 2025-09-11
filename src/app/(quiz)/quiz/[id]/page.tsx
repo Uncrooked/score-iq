@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HomeIcon } from "lucide-react";
-import QuizWrapper from "@/src/components/QuizWrapper/QuizWrapper";
+import QuizWrapper from "@/src/components/ui/QuizWrapper/QuizWrapper";
 // import { prisma } from "@db";
 
 export default async function Page({params}:{

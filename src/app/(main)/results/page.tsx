@@ -2,11 +2,11 @@
 
 import "@/src/styles/globals.css";
 import { Card, CardContent } from "@/components/ui/card"
-import { getCategory, getLifeExpectancyData, getLifeEventsData, getSkillsData } from "../stats-logic"
-import { LifeExpectancyChart } from "../components/LifeExpectancyChart"
-import { LifeEventsChart } from "../components/LifeEventsChart"
-import { SkillsChart } from "../components/SkillsChart"
-import { SummaryCard } from "../components/SummaryCard"
+import { getCategory, getLifeExpectancyData, getLifeEventsData, getSkillsData } from "./functions"
+import { LifeExpectancyChart } from "../../../components/results/LifeExpectancyChart/LifeExpectancyChart"
+import { LifeEventsChart } from "../../../components/results/LifeEventsChart/LifeEventsChart"
+import { SkillsChart } from "../../../components/results/SkillsChart/SkillsChart"
+import { SummaryCard } from "../../../components/results/SummaryCard/SummaryCard"
 import { useState, useEffect } from "react"
 
 

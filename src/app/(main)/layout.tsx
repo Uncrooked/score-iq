@@ -1,6 +1,6 @@
 import "@/src/styles/index.css";
 
-import Header from "@/src/components/Header/Header";
+import Header from "@/src/components/ui/Header/Header";
 
 export default function Layout({children}:{children:React.ReactNode}){
     return(
