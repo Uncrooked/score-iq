@@ -111,7 +111,8 @@ export function SkillsChart({ data }: SkillsChartProps) {
             Dégradation continue de vos capacités
           </div>
           <div className="text-muted-foreground text-lg">
-            Analyse de vos compétences sur une échelle de 0 à 100%
+            Analyse de vos compétences sur une échelle de 0 à 100%.
+            Plus proche du 0 que du 100%, c&apos;est que vous êtes complètement débile.
           </div>
         </div>
       </CardFooter>

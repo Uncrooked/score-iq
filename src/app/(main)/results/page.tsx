@@ -1,6 +1,7 @@
 "use client"
 
 import "@/src/styles/globals.css";
+import "@/src/styles/pages/results.css";
 import { Card, CardContent } from "@/components/ui/card"
 import { getCategory, getLifeExpectancyData, getLifeEventsData, getSkillsData } from "./functions"
 import { LifeExpectancyChart } from "../../../components/results/LifeExpectancyChart/LifeExpectancyChart"
@@ -49,40 +50,26 @@ export default function TestChartsPage() {
     setCategory(getCategory())
   }, [])
 
-  const refreshData = () => {
-    const lifeData = getLifeExpectancyData()
-    const eventsData = getLifeEventsData()
-    const skillsData = getSkillsData()
-    setLifeData(lifeData)
-    setEventsData(eventsData)
-    setRadialData(skillsData.map((skill, index) => ({
-      skill: skill.skill,
-      percentage: skill.percentage,
-      fill: `var(--color-rose-${index + 1})`
-    })))
-    setCategory(getCategory())
-  }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Analyse de Votre Dégradation Mentale</h1>
-        <button 
-          onClick={refreshData}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-        >
-          Générer de Nouvelles Statistiques Désastreuses
-        </button>
+    <div className="container mx-auto space-y-8">
+      {/* Titre principal */}
+      <div className="text-center space-y-4">
+        <h1 className="main-title">VOS STATISTIQUES</h1>
+        <p className="subtitle">
+          {category}
+        </p>
       </div>
 
-      {/* Message de catégorie */}
-      <Card className="border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-800">
-        <CardContent className="pt-6">
-          <p className="text-center text-lg font-semibold text-red-800 dark:text-red-200">
-            {category}
-          </p>
-        </CardContent>
-      </Card>
+      {/* Section Gardez bien à l'esprit */}
+      <div className="space-y-4">
+        <h2 className="section-title">Gardez bien à l&apos;esprit</h2>
+        <p className="section-content">
+        Tu rêves grand, mais tu ne réalises rien. Tes efforts sont dérisoires, tes ambitions fragiles, et chaque pas que tu crois faire en avant n’est qu’une illusion.
+        Tu n’inspires ni admiration ni respect, seulement de l’indifférence. Même ton acharnement ressemble davantage à de la fuite qu’à du courage.
+        En vérité, tu ne fais que t’épuiser pour masquer à quel point tu n’as aucune chance d’aller plus loin.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Graphique d'espérance de vie avec gradient */}
