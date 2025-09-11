@@ -7,9 +7,9 @@
     border:solid 1px var(--border);
     background-color:var(--neutral-900);
     top:20px;
-    left:max((calc((100vw - var(--desktop-width)) / 2) + var(--phone-margin)),var(--phone-margin));
     max-width:calc(100vw - (var(--phone-margin) * 2));
     width:calc(var(--desktop-width) - (var(--phone-margin) * 2));
+    z-index:99999999;
 }
 
 #header button{
