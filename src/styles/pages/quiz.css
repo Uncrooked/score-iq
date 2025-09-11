@@ -7,7 +7,18 @@
     gap:30px;
 }
 
-#quiz-page .home-btn{
+#quiz-page #head{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#quiz-page #head #user-name{
+    font-size:18px;
+    font-weight:600;
+}
+
+#quiz-page #head .home-btn{
     font-size:16px;
     width:112px;
     height:45px;
