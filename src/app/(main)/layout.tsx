@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
-import Header from "@/src/ui/Header/Header";
+import "@/src/styles/index.css?";
+
+import Header from "@/src/components/Header/Header";
 
 export default function Layout({children}:{children:React.ReactNode}){
     return(
@@ -10,9 +11,11 @@ export default function Layout({children}:{children:React.ReactNode}){
                 <title>Document</title>
             </head>
             <body className='dark'>
-                <Header/>
-                {children}
+                <div id="main" className="desktop-width">
+                    <Header/>
+                    {children}
+                </div>
             </body>
         </html>
     );
-}
+};
