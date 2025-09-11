@@ -1,0 +1,26 @@
+#quiz-page{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#quiz-page .home-btn{
+    font-size:16px;
+    width:112px;
+    height:45px;
+}
+
+#quiz-page .tag{
+    width:40px;
+    height:40px;
+    background-color: var(--neutral-900);
+    border-radius: 5px;
+    font-size:20px;
+    font-weight: 500;
+    display:grid;
+    place-items: center;
+    align-self: flex-end;
+}
