@@ -4,19 +4,21 @@ import Image from "next/image"
 import { Question } from "@/src/type";
 import AnwserWrapper from "../../AnswerWrapper/AnswerWrapper";
 import { redirect } from "next/navigation";
+import { setindexQuiz } from "@/src/cookies/indexQuiz";
 import { useEffect } from "react";
 
 interface Props {
     question:Question;
-    indexQuiz:React.RefObject<number>;
+    indexQuiz:number;
 }
 
 export default function QuizTypeText({question,indexQuiz}:Props){
     
-    if(indexQuiz.current >= 10) redirect("/results");
-    
-    indexQuiz.current++;
-    console.log(indexQuiz.current);
+    // if(indexQuiz >= 10) redirect("/results");
+        
+    // useEffect(() => {
+    //     setindexQuiz(indexQuiz + 1);
+    // },[]);
 
     return(
         <div id="quiz-wrapper" className="type-text">
