@@ -4,21 +4,18 @@ import Image from "next/image"
 import { Question } from "@/src/type";
 import AnwserWrapper from "../../AnswerWrapper/AnswerWrapper";
 import { redirect } from "next/navigation";
-import { setindexQuiz } from "@/src/cookies/indexQuiz";
 import { useEffect } from "react";
 
 interface Props {
     question:Question;
-    indexQuiz:number;
 }
 
-export default function QuizTypeText({question,indexQuiz}:Props){
-    
-    // if(indexQuiz >= 10) redirect("/results");
-        
-    // useEffect(() => {
-    //     setindexQuiz(indexQuiz + 1);
-    // },[]);
+export default function QuizTypeText({question}:Props){
+
+    useEffect(() => {
+        const quizIndex = window.localStorage.getItem('quiz_index') || "0";
+        window.localStorage.setItem('quiz_index',`${parseInt(quizIndex) + 1}`);
+    });
 
     return(
         <div id="quiz-wrapper" className="type-text">

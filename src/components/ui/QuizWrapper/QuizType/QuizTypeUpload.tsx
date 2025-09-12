@@ -6,27 +6,23 @@ import { DownloadIcon } from "lucide-react";
 import Form from "next/form";
 import { checkMimeType } from "@/src/actions/mimeType";
 import { Question } from "@/src/type";
-import { redirect } from "next/navigation";
-import { setindexQuiz } from "@/src/cookies/indexQuiz";
 import { useEffect } from "react";
 
 interface Props {
     question:Question;
-    indexQuiz:number;
 }
 
-export default function QuizTypeUpload({question,indexQuiz}:Props){
+export default function QuizTypeUpload({question}:Props){
     const form = useRef<HTMLFormElement | null>(null);
 
     function handleFileChange(){
         form.current?.requestSubmit();
     }
 
-    // if(indexQuiz >= 10) redirect("/results");
-        
-    // useEffect(() => {
-    //     setindexQuiz(indexQuiz + 1);
-    // },[]);
+    useEffect(() => {
+        const quizIndex = window.localStorage.getItem('quiz_index') || "0";
+        window.localStorage.setItem('quiz_index',`${parseInt(quizIndex) + 1}`);
+    });
 
     return(
         <div id="quiz-wrapper" className="type-upload">

@@ -3,22 +3,18 @@
 import { NextImageAttrs, Question } from "@/src/type";
 import Image from "next/image";
 import AnwserWrapper from "../../AnswerWrapper/AnswerWrapper";
-import { redirect } from "next/navigation";
 import { useEffect } from "react";
-import { setindexQuiz } from "@/src/cookies/indexQuiz";
 
 interface Props {
     question:Question;
-    indexQuiz:number;
 }
 
-export default function QuizTypeImage({question,indexQuiz}:Props){
+export default function QuizTypeImage({question}:Props){
 
-    // if(indexQuiz >= 10) redirect("/results");
-    
-    // useEffect(() => {
-    //     setindexQuiz(indexQuiz + 1);
-    // },[]);
+    useEffect(() => {
+        const quizIndex = window.localStorage.getItem('quiz_index') || "0";
+        window.localStorage.setItem('quiz_index',`${parseInt(quizIndex) + 1}`);
+    });
 
     return(
         <div id="quiz-wrapper" className="type-image">

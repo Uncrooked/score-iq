@@ -4,15 +4,15 @@ import QuizTypeImage from "./QuizType/QuizTypeImage";
 import QuizTypeUpload from "./QuizType/QuizTypeUpload";
 import QuizTypeText from "./QuizType/QuizTypeText";
 import { Question } from "@/src/type";
+import { useEffect } from "react";
 
 interface Props{
     id:number;
     questions:Question[];
     randId: number;
-    indexQuiz: number;
 }
 
-export default function QuizWrapperClient({ id, questions, randId, indexQuiz }:Props){
+export default function QuizWrapperClient({ id, questions, randId }:Props){
     let Component = QuizTypeText;
 
     switch(id){
@@ -27,7 +27,12 @@ export default function QuizWrapperClient({ id, questions, randId, indexQuiz }:P
             break;
     }
 
+    useEffect(() => {
+        const quizIndex = window.localStorage.getItem('quiz_index') || "";
+        if(parseInt(quizIndex) >= 5) window.location.href = "/results";
+    });
+
     return(
-      <Component question={questions[randId]} indexQuiz={indexQuiz} />
+      <Component question={questions[randId]} />
     )
 }

@@ -5,7 +5,7 @@ import { setUserName } from "@/src/actions/userName";
 import Form from 'next/form';
 
 export default async function Page() {
-  
+
   return (
     <section id="landing-page">
       <div className="bg-shape"></div>

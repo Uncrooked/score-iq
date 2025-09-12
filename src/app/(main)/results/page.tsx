@@ -49,6 +49,10 @@ export default function TestChartsPage() {
     setCategory(getCategory())
   }, [])
 
+  useEffect(() => {
+    window.localStorage.setItem('quiz_index',"0");
+  });
+
 
   return (
     <div className="container mx-auto space-y-8">
