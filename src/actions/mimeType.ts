@@ -1,15 +1,17 @@
 'use server'
+
 import { redirect } from 'next/navigation';
+import { getRandId } from "@/src/utils/getRandQuestionType";
+import { redirectError } from '../utils/redirectError';
 
 export async function checkMimeType(formData:FormData){
-    const file = formData.get("file") as File | null;
+    const file = formData.get("file") as File;
+    const mimeType = formData.get("mime_type") as string;
+    const currentHref = formData.get("current_href") as string;
 
-    if (!file) throw new Error("Aucun fichier trouvé dans le FormData");
+    if (!file || !mimeType) redirectError("/quiz/" + currentHref);
 
-    const allowedTypes = ["image/png", "image/jpeg", "image/gif"];
-    if (!allowedTypes.includes(file.type)) {
-        throw new Error("Type de fichier non autorisé");
-    }
+    if (mimeType != file.type) redirectError("/quiz/" + currentHref);
 
-    redirect("/results");
+    redirect("/quiz/" + getRandId(1,3));
 }

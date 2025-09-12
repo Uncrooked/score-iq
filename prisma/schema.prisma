@@ -16,7 +16,7 @@ model question {
   
   img                 img?        @relation(fields: [content_img_id], references: [id])
   upload_type         upload_type? @relation(fields: [content_upload_type_id], references: [id])
-  answers             answer[]
+  answer              answer[]
   question_type       question_type? @relation(fields: [type_id], references: [id])
 }
 
@@ -41,6 +41,7 @@ model answer {
   id         Int    @id @default(autoincrement())
   question_id Int
   content    String
+  valid      Boolean?
   
   question   question @relation(fields: [question_id], references: [id])
 }
