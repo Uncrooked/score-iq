@@ -50,7 +50,7 @@ export default function TestChartsPage() {
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('quiz_index',"0");
+    window.localStorage.setItem('quiz_index',"1");
   });
 
 

@@ -29,7 +29,7 @@ export default function QuizWrapperClient({ id, questions, randId }:Props){
 
     useEffect(() => {
         const quizIndex = window.localStorage.getItem('quiz_index') || "";
-        if(parseInt(quizIndex) >= 5) window.location.href = "/results";
+        if(parseInt(quizIndex) >= 10) window.location.href = "/results";
     });
 
     return(
