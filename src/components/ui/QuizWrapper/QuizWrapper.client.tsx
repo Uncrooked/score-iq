@@ -1,31 +1,35 @@
+'use client'
+
 import QuizTypeImage from "./QuizType/QuizTypeImage";
 import QuizTypeUpload from "./QuizType/QuizTypeUpload";
 import QuizTypeText from "./QuizType/QuizTypeText";
+import { Question } from "@/src/type";
+import { useRef } from "react";
 
 interface Props{
-    id?:string;
+    id:number;
+    questions:Question[];
+    randId: number;
 }
 
-type type = "image" | "text" | "upload";
-
-export default function QuizWrapper({id}:Props){
-
+export default function QuizWrapperClient({ id, questions, randId }:Props){
     let Component = QuizTypeText;
-    let type = "upload";
 
-    switch(type){
-        case "image":
+    const indexQuiz = useRef<number>(0);
+
+    switch(id){
+        case 2:
             Component = QuizTypeImage;
             break;
-        case "text":
+        case 1:
             Component = QuizTypeText;
             break;
-        case "upload":
+        case 3:
             Component = QuizTypeUpload;
             break;
     }
 
     return(
-        <Component/>
+      <Component question={questions[randId]} indexQuiz={indexQuiz} />
     )
 }

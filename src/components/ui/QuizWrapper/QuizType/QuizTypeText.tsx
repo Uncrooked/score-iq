@@ -1,6 +1,23 @@
-import Image from "next/image"
+'use client'
 
-export default function QuizTypeText(){
+import Image from "next/image"
+import { Question } from "@/src/type";
+import AnwserWrapper from "../../AnswerWrapper/AnswerWrapper";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
+
+interface Props {
+    question:Question;
+    indexQuiz:React.RefObject<number>;
+}
+
+export default function QuizTypeText({question,indexQuiz}:Props){
+    
+    if(indexQuiz.current >= 10) redirect("/results");
+    
+    indexQuiz.current++;
+    console.log(indexQuiz.current);
+
     return(
         <div id="quiz-wrapper" className="type-text">
             <div id="question-wrapper">
@@ -8,13 +25,9 @@ export default function QuizTypeText(){
                     <h1>Question 1</h1>
                     <Image src="/img/icon-logo.svg" alt="Logo icône de score iq" width={24} height={25} />
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed lacus ipsum. Maecenas vitae libero suscipit, malesuada ex ac, </p>
+                <p>{question.content_text}</p>
             </div>
-            <div id="answer-wrapper">
-                <div className="answer anim">Lorem ipsum dolor</div>
-                <div className="answer anim">Lorem ipsum dolor</div>
-                <div className="answer anim">Lorem ipsum dolor</div>
-            </div>
+            <AnwserWrapper currentHref="1" answerData={question.answer} />
         </div>  
     )
 }
