@@ -36,6 +36,15 @@
     align-self: flex-end;
 }
 
+#error{
+    background-color:rgb(159, 0, 0);
+    color:white;
+    padding:20px;
+    position:absolute;
+    left:50px;
+    bottom:50px;
+}
+
 @media(max-width:768px){
     #quiz-page{
         gap:10px;

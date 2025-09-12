@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HomeIcon } from "lucide-react";
-import QuizWrapper from "@/src/components/ui/QuizWrapper/QuizWrapper";
+import QuizWrapperServer from "@/src/components/ui/QuizWrapper/QuizWrapper.server";
 import { getUserName } from "@/src/actions/userName";
-// import { prisma } from "@db";
+import Error from "@/src/components/ui/Error/Error";
 
-export default async function Page({params}:{
-    params: Promise<{id : string}>
+export default async function Page({params,searchParams}:{
+    params: Promise<{id : string}>,
+    searchParams: { [key: string]: string | string[] | undefined }
 }){
     const { id } = await params;
 
@@ -21,8 +22,9 @@ export default async function Page({params}:{
                 </Link>
                 <p id="user-name">{userCookie?.value}</p>
             </div>
-            <QuizWrapper id={id} />
+            <QuizWrapperServer id={parseInt(id)} />
             <div className="tag">1</div>
+            {(await searchParams).error && <Error/>}
         </section>
     )
 }
