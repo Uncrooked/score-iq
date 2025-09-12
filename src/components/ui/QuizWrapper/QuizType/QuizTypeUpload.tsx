@@ -7,11 +7,12 @@ import Form from "next/form";
 import { checkMimeType } from "@/src/actions/mimeType";
 import { Question } from "@/src/type";
 import { redirect } from "next/navigation";
+import { setindexQuiz } from "@/src/cookies/indexQuiz";
 import { useEffect } from "react";
 
 interface Props {
     question:Question;
-    indexQuiz:React.RefObject<number>;
+    indexQuiz:number;
 }
 
 export default function QuizTypeUpload({question,indexQuiz}:Props){
@@ -21,7 +22,11 @@ export default function QuizTypeUpload({question,indexQuiz}:Props){
         form.current?.requestSubmit();
     }
 
-    if(indexQuiz.current >= 10) redirect("/results");
+    // if(indexQuiz >= 10) redirect("/results");
+        
+    // useEffect(() => {
+    //     setindexQuiz(indexQuiz + 1);
+    // },[]);
 
     return(
         <div id="quiz-wrapper" className="type-upload">

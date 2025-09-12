@@ -2,6 +2,7 @@
 import { prisma } from "@db";
 import QuizWrapperClient from "./QuizWrapper.client";
 import { getRandId } from "@/src/utils/getRandQuestionType";
+import { getindexQuiz } from "@/src/cookies/indexQuiz";
 
 interface Props{
     id: number;
@@ -45,5 +46,7 @@ export default async function QuizWrapperServer({id}:Props){
 
     const randId = getRandId(0,3);
 
-    return <QuizWrapperClient randId={randId} id={id} questions={questions}/>
+    const indexQuiz = await getindexQuiz() || 0;
+
+    return <QuizWrapperClient randId={randId} id={id} questions={questions} indexQuiz={indexQuiz}/>
 }

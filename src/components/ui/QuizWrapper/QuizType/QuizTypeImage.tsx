@@ -5,17 +5,20 @@ import Image from "next/image";
 import AnwserWrapper from "../../AnswerWrapper/AnswerWrapper";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import { setindexQuiz } from "@/src/cookies/indexQuiz";
 
 interface Props {
     question:Question;
-    indexQuiz:React.RefObject<number>;
+    indexQuiz:number;
 }
 
 export default function QuizTypeImage({question,indexQuiz}:Props){
 
-    if(indexQuiz.current >= 10) redirect("/results");
+    // if(indexQuiz >= 10) redirect("/results");
     
-    indexQuiz.current++;
+    // useEffect(() => {
+    //     setindexQuiz(indexQuiz + 1);
+    // },[]);
 
     return(
         <div id="quiz-wrapper" className="type-image">
